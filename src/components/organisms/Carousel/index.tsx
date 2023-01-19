@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { Box, Flex, Text } from "@chakra-ui/react";
-
-const dummy = require("./dummy.json");
+import { dataType } from "../../pages/Main/index";
 
 /* const IMAGES = [
   "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg",
@@ -12,24 +11,9 @@ const dummy = require("./dummy.json");
   "https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
 ]; */
 
-type attachment = {
-  src: string[];
-  type: string;
-  url: string;
-};
-
-type dataType = {
-  attachments: attachment[];
-  id: string;
-  link: string;
-  message: string;
-  page: string;
-};
-
-const DATA: dataType[] = JSON.parse(dummy.data.getPageFeed);
-console.log(DATA);
-
-export const KanbonCarousel = () => {
+export const KanbonCarousel: React.FC<{
+  data: dataType[];
+}> = ({ data }) => {
   return (
     <Carousel
       autoPlay={true}
@@ -40,7 +24,7 @@ export const KanbonCarousel = () => {
       showArrows={false}
       interval={15000}
     >
-      {DATA.map(({ id, attachments, link, message, page }, i) => {
+      {data.map(({ id, attachments, link, message, page }, i) => {
         const url = attachments[0].src[0];
 
         return (

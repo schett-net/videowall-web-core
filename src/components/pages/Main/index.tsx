@@ -33,6 +33,25 @@ import { getData } from "./useData";
 import { KanbonCarousel } from "../../organisms/Carousel/index";
 import Lottie from "lottie-react";
 
+export type attachment = {
+  src: string[];
+  type: string;
+  url: string;
+};
+
+export type dataType = {
+  attachments: attachment[];
+  id: string;
+  link: string;
+  message: string;
+  page: string;
+};
+
+const dummy = require("./dummy.json");
+
+const DATA: dataType[] = JSON.parse(dummy.data.getPageFeed);
+console.log(DATA);
+
 const Main = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [data, setData] = React.useState<any>([]);
@@ -81,7 +100,20 @@ const Main = () => {
           />
         </Flex>
       ) : (
-        <KanbonCarousel />
+        <>
+          {data && data.length > 0 ? (
+            <KanbonCarousel data={DATA} />
+          ) : (
+            <Flex
+              h="100vh"
+              w="100vw"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text>No data found</Text>
+            </Flex>
+          )}
+        </>
       )}
     </Box>
   );
