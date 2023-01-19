@@ -1,0 +1,72 @@
+{
+  "name": "my-ts-app",
+  "homepage": "",
+  "version": "0.4.0-alpha",
+  "private": true,
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.6",
+    "@chakra-ui/pro-theme": "^0.0.53",
+    "@chakra-ui/react": "^2.2.6",
+    "@craco/craco": "^7.0.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@fingerprintjs/fingerprintjs-pro-react": "^2.2.0",
+    "@mui/material": "^5.11.4",
+    "@reduxjs/toolkit": "^1.8.4",
+    "chakra-react-select": "4.2.2",
+    "framer-motion": "^6.2.9",
+    "language": "^0.4.0",
+    "lottie-react": "^2.3.1",
+    "moment": "^2.29.4",
+    "react": "^18.1.0",
+    "react-blurhash": "^0.3.0",
+    "react-device-detect": "^2.2.2",
+    "react-dom": "^18.1.0",
+    "react-dropzone": "^14.2.2",
+    "react-hook-form": "^7.41.2",
+    "react-i18next": "^12.1.4",
+    "react-icons": "^3.0.0",
+    "react-nice-avatar": "^1.3.1",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-select-country-list": "^2.2.3",
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1",
+    "start": "^5.1.0",
+    "typescript": "^4.6.3",
+    "uuid": "^8.3.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.1",
+    "@types/node": "^12.0.0",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "@types/react-lazy-load-image-component": "^1.5.2",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-select-country-list": "^2.2.0",
+    "@types/redux-logger": "^3.0.9",
+    "@types/uuid": "^8.3.4"
+  }
+}
