@@ -32,6 +32,7 @@ import {
 import { getData } from "./useData";
 import { KanbonCarousel } from "../../organisms/Carousel/index";
 import Lottie from "lottie-react";
+import { getPageFeed } from "@snek-functions/facebook";
 
 export type attachment = {
   src: string[];
@@ -63,7 +64,10 @@ const Main = () => {
         setLoading(true);
       }
 
-      const res = await getData();
+      //const res = await getData();
+      const res = await getPageFeed({
+        pageId: "kanbon-at",
+      });
 
       setData(res);
 
