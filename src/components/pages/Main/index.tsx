@@ -49,8 +49,8 @@ export type dataType = {
 
 const dummy = require("./dummy.json");
 
-const DATA: dataType[] = JSON.parse(dummy.data.getPageFeed);
-console.log(DATA);
+const DUMMY: dataType[] = JSON.parse(dummy.data.getPageFeed);
+console.log(DUMMY);
 
 const Main = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -102,7 +102,7 @@ const Main = () => {
       ) : (
         <>
           {data && data.length > 0 ? (
-            <KanbonCarousel data={DATA} />
+            <KanbonCarousel data={DUMMY} />
           ) : (
             <Flex
               h="100vh"
