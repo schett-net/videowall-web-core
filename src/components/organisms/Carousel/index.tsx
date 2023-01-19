@@ -6,11 +6,11 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 
 const dummy = require("./dummy.json");
 
-const IMAGES = [
+/* const IMAGES = [
   "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg",
   "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg",
   "https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
-];
+]; */
 
 type attachment = {
   src: string[];

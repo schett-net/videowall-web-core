@@ -31,6 +31,7 @@ import {
 } from "react-icons/fi";
 import { getData } from "./useData";
 import { KanbonCarousel } from "../../organisms/Carousel/index";
+import Lottie from "lottie-react";
 
 const Main = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -39,7 +40,9 @@ const Main = () => {
 
   const getVideoWall = async () => {
     try {
-      setLoading(true);
+      if (!isInitialized) {
+        setLoading(true);
+      }
 
       const res = await getData();
 
@@ -71,7 +74,11 @@ const Main = () => {
     <Box>
       {loading ? (
         <Flex h="100vh" w="100vw" justifyContent="center" alignItems="center">
-          <Text>Loading...</Text>
+          <Lottie
+            animationData={require("../../../assets/lottie/loading.json")}
+            loop
+            style={{ width: 200, maxWidth: "80%" }}
+          />
         </Flex>
       ) : (
         <KanbonCarousel />
