@@ -1,8 +1,6 @@
 import { theme as proTheme } from "@chakra-ui/pro-theme";
 import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
 import * as React from "react";
-import { ModalWrapper } from "./components/organisms/modals/ModalWrapper";
-import { DisclosuresProvider } from "./hooks/useDisclosure";
 import { mode } from "@chakra-ui/theme-tools";
 
 import Main from "./components/pages/Main/index";
@@ -41,11 +39,7 @@ export const App = () => {
   return (
     <ChakraProvider theme={themeMemo}>
       <ColorModeScript />
-      <DisclosuresProvider>
-        <ModalWrapper>
-          <Main />
-        </ModalWrapper>
-      </DisclosuresProvider>
+      <Main />
     </ChakraProvider>
   );
 };

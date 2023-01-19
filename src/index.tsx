@@ -7,21 +7,6 @@ import * as serviceWorker from "./serviceWorker";
 // DOM bindings for React Router
 import { BrowserRouter } from "react-router-dom";
 
-//> Redux
-// Provider
-import { Provider } from "react-redux";
-//> Redux store
-import store from "./store";
-
-import { AuthProvider } from "./context/AuthProvider";
-
-// Language framework
-import {
-  FpjsProvider,
-  CacheLocation,
-  LoadOptions,
-} from "@fingerprintjs/fingerprintjs-pro-react";
-
 const container = document.getElementById("root");
 if (!container) throw new Error("Failed to find the root element");
 const root = ReactDOM.createRoot(container);
@@ -29,24 +14,9 @@ const root = ReactDOM.createRoot(container);
 // Start session
 //Drop.bridge.session.begin();
 
-const config = { publicKey: "pk_105e271cd95fcb6f9c1e" };
-
 root.render(
   <React.StrictMode>
-    <FpjsProvider
-      // @ts-ignore
-      cacheLocation={CacheLocation.LocalStorage}
-      cachePrefix="PF_fpjs"
-      loadOptions={{
-        apiKey: "F8Rwnsk8mwKYv6rEmIbY",
-        region: "eu",
-        endpoint: "https://metrics.personaforge.com",
-      }}
-    >
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </FpjsProvider>
+    <App />
   </React.StrictMode>
 );
 
