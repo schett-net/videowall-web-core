@@ -5,7 +5,17 @@ import reportWebVitals from "./reportWebVitals";
 import * as serviceWorker from "./serviceWorker";
 
 // DOM bindings for React Router
-import { BrowserRouter } from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql,
+} from "@apollo/client";
+
+export const client = new ApolloClient({
+  uri: "https://videowall.kanbon.cloud/graphql",
+  cache: new InMemoryCache(),
+});
 
 const container = document.getElementById("root");
 if (!container) throw new Error("Failed to find the root element");

@@ -30,10 +30,12 @@ import {
   FiSmile,
 } from "react-icons/fi";
 import { getData } from "./useData";
+import { KanbonCarousel } from "../../organisms/Carousel/index";
 
 const Main = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [data, setData] = React.useState<any>([]);
+  const [isInitialized, setIsInitialized] = React.useState<boolean>(false);
 
   const getVideoWall = async () => {
     try {
@@ -41,15 +43,22 @@ const Main = () => {
 
       const res = await getData();
 
+      setData(res);
+
       console.log(res);
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
+      setIsInitialized(true);
     }
   };
 
   React.useEffect(() => {
+    if (!isInitialized) {
+      getVideoWall();
+    }
+
     // Refetch once every 30 minutes
     const interval = setInterval(() => {
       getVideoWall();
@@ -59,9 +68,15 @@ const Main = () => {
   });
 
   return (
-    <Container maxW="container.sm" py="10">
-      {loading ? <Text>Loading...</Text> : <Text>Test</Text>}
-    </Container>
+    <Box>
+      {loading ? (
+        <Flex h="100vh" w="100vw" justifyContent="center" alignItems="center">
+          <Text>Loading...</Text>
+        </Flex>
+      ) : (
+        <KanbonCarousel />
+      )}
+    </Box>
   );
 };
 
